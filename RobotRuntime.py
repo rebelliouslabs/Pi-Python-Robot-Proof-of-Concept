@@ -1,8 +1,8 @@
-from SimpleWebSocketServer import SimpleWebSocketServer
+from websocket_server import WebsocketServer
 
 class RobotRuntime:
 
-    def __init__(self, WebSocketHandler):
+    def __init__(self, RobotWSHandler):
         # Set Up Web Sockets
         self.webSocketHandler = WebSocketHandler
         self.registerWebSocket()
