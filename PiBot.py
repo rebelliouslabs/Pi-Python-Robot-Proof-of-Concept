@@ -4,7 +4,7 @@ import atexit
 
 class PiBot:
 
-    def __init__(self, motorDriver):
+    def __init__(self):
         self.name = 'PiBot'
         print "Register Motor Contorller"
         # Register Motor Controller

@@ -1,6 +1,6 @@
 #from RobotRuntime import RobotRuntime
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
-from PiBot import PiBot
+import PiBot
 import time
 #robot = RobotRuntime()
 #robot.run()
