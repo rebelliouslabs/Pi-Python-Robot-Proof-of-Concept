@@ -1,11 +1,13 @@
 #from RobotRuntime import RobotRuntime
+from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 from PiBot import PiBot
 import time
 #robot = RobotRuntime()
 #robot.run()
 
+mh = Adafruit_MotorHAT(addr=0x60)
 
-bot = PiBot()
+bot = PiBot(mh)
 bot.rotateLeft()
 time.sleep(3)
 bot.release()

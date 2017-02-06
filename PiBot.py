@@ -4,18 +4,18 @@ import atexit
 
 class PiBot:
 
-    def __init__(self):
+    def __init__(self, motorDriver):
         self.name = 'PiBot'
         print "Register Motor Contorller"
         # Register Motor Controller
-        self.mh1 = Adafruit_MotorHAT(addr=0x60)
+        self.motorDriver = motorDriver
 
         print "Register Motors"
         # Register motors
-        self.frontRight = self.mh1.getMotor(3)
-        self.frontLeft = self.mh1.getMotor(4)
-        self.rearRight = self.mh1.getMotor(2)
-        self.rearLeft = self.mh1.getMotor(1)
+        self.frontRight = motorDriver.getMotor(3)
+        self.frontLeft = motorDriver.getMotor(4)
+        self.rearRight = motorDriver.getMotor(2)
+        self.rearLeft = motorDriver.getMotor(1)
 
         # Register a die command to kill motors if program crashes.
         # atexit.register(self.die)
