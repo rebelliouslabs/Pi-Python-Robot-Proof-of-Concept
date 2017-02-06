@@ -6,10 +6,11 @@ class PiBot:
 
     def __init__(self):
         self.name = 'PiBot'
-
+        print "Register Motor Contorller"
         # Register Motor Controller
         self.mh1 = Adafruit_MotorHAT(addr=0x60)
 
+        print "Register Motors"
         # Register motors
         self.frontRight = self.mh1.getMotor(3)
         self.frontLeft = self.mh1.getMotor(4)
@@ -17,12 +18,13 @@ class PiBot:
         self.rearLeft = self.mh1.getMotor(1)
 
         # Register a die command to kill motors if program crashes.
-        atexit.register(self.die)
+        # atexit.register(self.die)
 
     # Move Forward
     #
     # Tells the robot to move forward
     def moveForward(self):
+        print "Move Forward"
         self.frontRight.run(Adafruit_MotorHAT.FORWARD)
         self.frontLeft.run(Adafruit_MotorHAT.FORWARD)
         self.rearRight.run(Adafruit_MotorHAT.FORWARD)
@@ -32,6 +34,7 @@ class PiBot:
     #
     # Tells the robot to move backward
     def moveBackward(self):
+        print "Move Backward"
         self.frontRight.run(Adafruit_MotorHAT.BACKWARD)
         self.frontLeft.run(Adafruit_MotorHAT.BACKWARD)
         self.rearRight.run(Adafruit_MotorHAT.BACKWARD)
@@ -41,6 +44,7 @@ class PiBot:
     #
     # Rotates the robot clock-wise
     def rotateLeft(self):
+        print "Rotate Left"
         self.frontRight.run(Adafruit_MotorHAT.FORWARD)
         self.frontLeft.run(Adafruit_MotorHAT.BACKWARD)
         self.rearRight.run(Adafruit_MotorHAT.FORWARD)
@@ -50,6 +54,7 @@ class PiBot:
     #
     # Rotates the robot counter-clock-wise
     def rotateRight(self):
+        print "Rotate Right"
         self.frontRight.run(Adafruit_MotorHAT.BACKWARD)
         self.frontLeft.run(Adafruit_MotorHAT.FORWARD)
         self.rearRight.run(Adafruit_MotorHAT.BACKWARD)
@@ -59,6 +64,7 @@ class PiBot:
     #
     # Release the motor
     def release(self):
+        print "Release"
         self.frontRight.run(Adafruit_MotorHAT.RELEASE)
         self.frontLeft.run(Adafruit_MotorHAT.RELEASE)
         self.rearRight.run(Adafruit_MotorHAT.RELEASE)
