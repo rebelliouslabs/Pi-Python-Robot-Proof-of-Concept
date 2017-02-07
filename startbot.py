@@ -1,30 +1,13 @@
-#from RobotRuntime import RobotRuntime
-from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
-import PiBot
+from RobotRuntime import RobotRuntime
+from RobotWSHandler import RobotWSHandler
+from PiBot import PiBot
 import time
-#robot = RobotRuntime()
-#robot.run()
 
-mh = Adafruit_MotorHAT(addr=0x60)
+bot = PiBot()
+bot.setMotorSpeed(150)
+handler = RobotWSHandler(bot)
 
-bot = PiBot(mh)
-bot.rotateLeft()
-time.sleep(3)
-bot.release()
-time.sleep(1)
-
-bot.rotateRight()
-time.sleep(3)
-bot.release()
-time.sleep(1)
-
-bot.moveForward()
-time.sleep(3)
-bot.release()
-time.sleep(1)
-
-bot.moveBackward()
-time.sleep(3)
-bot.release()
+robot = RobotRuntime(handler)
+robot.run()
 
 print "Done"
